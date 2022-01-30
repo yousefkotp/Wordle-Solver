@@ -101,6 +101,13 @@ int main()
             return 0;
         }else
             cout<<"there is "<<v.size()<<" possible solution"<<endl;
+
+        for(int i=0;i<26;i++)               //reseting all the used variable since we already deleted from vector
+            visited[i]=false;
+        rightLetters.clear();
+        possibleLetters.clear();
+        badLetters.clear();
+
     }
     return 0;
 }
