@@ -60,7 +60,7 @@ int main()
     cout<<"Best words to start with:"<<endl;
     cout<<"notes, resin, tares, senor"<<endl;
     cout<< "'!' for black, '@' for yellow, '#' for green (before each letter)"<<endl;
-    populateVector("wordsdictionary.txt");
+    populateVector("wordsDictionary.txt");
     while(true){
         string s;
         cin>>s;
@@ -70,22 +70,32 @@ int main()
             return 0;
 
         bool visited[26];                           //to make sure that repeated characters doesn't clash (like abbey for example)
+
+
+        for(int i=0;i<s.size();i++){
+            if(s[i]=='#'){
+                i++;
+                visited[s[i]-'a']=true;
+                rightLetters.push_back(make_pair(s[i],i/2));
+            }
+        }
+        for(int i=0;i<s.size();i++){
+            if(s[i]=='@'){
+                i++;
+                if(!visited[s[i]-'a'])
+                    possibleLetters.push_back(make_pair(s[i],i/2));
+                visited[s[i]-'a']=true;
+            }
+        }
         for(int i=0;i<s.size();i++){
             if(s[i]=='!'){
                 i++;
                 if(!visited[s[i]-'a'])
                     badLetters.push_back(s[i]);
-            }else if(s[i]=='@'){
-                i++;
-                if(!visited[s[i]-'a'])
-                    possibleLetters.push_back(make_pair(s[i],i/2));
-            }else{
-                i++;
-                if(!visited[s[i]-'a'])
-                    rightLetters.push_back(make_pair(s[i],i/2));
-            }
                 visited[s[i]-'a']=true;
+            }
         }
+
         for(int i=0;i<rightLetters.size();i++)
             findRightLetters(rightLetters[i].first,rightLetters[i].second);
         for(int i=0;i<possibleLetters.size();i++)
