@@ -60,7 +60,7 @@ int main()
     cout<<"Best words to start with:"<<endl;
     cout<<"notes, resin, tares, senor"<<endl;
     cout<< "'!' for black, '@' for yellow, '#' for green (before each letter)"<<endl;
-    populateVector("wordsDictionary.txt");
+    populateVector("wordsDictionary.txt");                  // you can change this dictionary to any dictionary you want
     while(true){
         string s;
         cin>>s;
