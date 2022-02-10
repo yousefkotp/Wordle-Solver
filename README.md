@@ -8,3 +8,9 @@ For each possible letter (aka yellow letter) put '@' before it.
 For each right letter (aka green letter) put '#' before it.
 
 Don't put spaces between letters as input.
+
+Example:
+      !n@o#t!e!s
+n,e,s are black
+o is yellow
+t is green
