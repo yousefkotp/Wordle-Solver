@@ -82,8 +82,7 @@ int main()
         for(int i=0;i<s.size();i++){
             if(s[i]=='@'){
                 i++;
-                if(!visited[s[i]-'a'])
-                    possibleLetters.push_back(make_pair(s[i],i/2));
+                possibleLetters.push_back(make_pair(s[i],i/2));
                 visited[s[i]-'a']=true;
             }
         }
