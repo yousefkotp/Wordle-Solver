@@ -66,7 +66,7 @@ int main()
         cin>>s;
         transform(s.begin(), s.end(), s.begin(), ::tolower);        //transferring string into lower charachters
 
-        if(s=="EXIT")
+        if(s=="exit")
             return 0;
 
         bool visited[26];                           //to make sure that repeated characters doesn't clash (like abbey for example)
