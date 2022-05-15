@@ -9,7 +9,7 @@ For each right letter (aka green letter) put '#' before it.
 
 Don't put spaces between letters as input.
 
-Example:
+### Example:
 
       !n@o#t!e!s
                         
