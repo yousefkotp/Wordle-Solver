@@ -7,7 +7,7 @@ vector<string>::iterator it;
 vector<char>badLetters;                 //char value for each black color
 vector<pair<char,int>>possibleLetters; //char value and index for each yellow character
 vector<pair<char,int>>rightLetters;     //char value and index for each green character
-
+vector<pair<char,int>>specialLetters;
 void populateVector(string filename){       //populating vector from dictionary text file
     ifstream file;
     file.open(filename);
@@ -54,17 +54,23 @@ void findRightLetters(char x,int y){
         temp[y]!=x?it = v.erase(it):++it;
     }
 }
+void eliminateSpecialLetters(char x,int y){
+    for(it = v.begin();it!=v.end();){
+        string temp = *it;
+        temp[y]==x?it = v.erase(it):++it;
+    }
+}
 int main()
 {
     cout<<"Enter EXIT to finish the program"<<endl;
     cout<<"Best words to start with:"<<endl;
     cout<<"notes, resin, tares, senor"<<endl;
     cout<< "'!' for black, '@' for yellow, '#' for green (before each letter)"<<endl;
-    populateVector("wordsDictionary.txt");                  // you can change this dictionary to any dictionary you want
+    populateVector("wordsdictionary.txt");                  // you can change this dictionary to any dictionary you want
     while(true){
         string s;
         cin>>s;
-        transform(s.begin(), s.end(), s.begin(), ::tolower);        //transferring string into lower charachters
+        transform(s.begin(), s.end(), s.begin(), ::tolower);        //transferring string into lower characters
 
         if(s=="exit")
             return 0;
@@ -91,6 +97,8 @@ int main()
                 i++;
                 if(!visited[s[i]-'a'])
                     badLetters.push_back(s[i]);
+                else
+                    specialLetters.push_back(make_pair(s[i],i/2));
                 visited[s[i]-'a']=true;
             }
         }
@@ -101,6 +109,8 @@ int main()
             eliminatePossibleLetters(possibleLetters[i].first,possibleLetters[i].second);
         for(int i=0;i<badLetters.size();i++)
             eliminateBadLetters(badLetters[i]);
+        for(int i=0;i<specialLetters.size();i++)
+            eliminateSpecialLetters(specialLetters[i].first,specialLetters[i].second);
 
         for(auto i:v)                   //printing element of vector after handling all characters
             cout<<i<<endl;
@@ -116,6 +126,7 @@ int main()
         rightLetters.clear();
         possibleLetters.clear();
         badLetters.clear();
+        specialLetters.clear();
 
     }
     return 0;
