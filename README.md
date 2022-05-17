@@ -44,7 +44,7 @@ Example:
     }
 }
  ```
- 4. For each Possible letter in the word (Yellow Letter):
+ 6. For each Possible letter in the word (Yellow Letter):
 
             Iterate through vector of words
                   If any words doesn't contain that yellow character at all, remove it
@@ -69,7 +69,7 @@ void eliminatePossibleLetters(char x,int y){
     }
 }
 ```
-5. For each Right letter (Green Letter): 
+7. For each Right letter (Green Letter): 
             
             Iterate through vector of words, if any word doesn't have that character in same position as entered, remove it.
 ```cpp
@@ -80,7 +80,7 @@ void findRightLetters(char x,int y){
     }
 }
 ```
-6. For each (Special letter): 
+8. For each (Special letter): 
 
             Iterate through vector of words, if any word have that character in same position as entered, remove it.
 
