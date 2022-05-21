@@ -26,7 +26,7 @@ Example:
 2. Take input from user
 3. If the letter in the word is Green, insert it in "rightLetters" vector along with its index. If the letter is Yellow, insert it in "possibleLetters" vector along with its index.
 4. If the letter is black, we will check if it has been previously inserted in right or possible vector, if so we will insert it in "specialLetters" vector, else we will inser it in "badLetters" vector.
-5. For each Bad letter in the word (Red Letter): 
+5. For each Bad letter in the word (Black Letter): 
 
        Iterate through the vector of words, if any word contain such bad letter, remove it from vector
  ```cpp
